@@ -12,8 +12,7 @@ const Answer = () => {
             </summary>
             <div className="px-4 pb-4">
               <p>
-                Font: Inter Font weight: 400 Font size: 16pxpx Row height: 24px
-                Letter spacing: 0% Align: Align left
+                A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day. Here’s how it typically functions: A posture corrector works by providing support and gentle alignment to your shoulders.
               </p>
             </div>
           </details>
@@ -23,8 +22,7 @@ const Answer = () => {
             </summary>
             <div className="px-4 pb-4">
               <p>
-                Font: Inter Font weight: 400 Font size: 16pxpx Row height: 24px
-                Letter spacing: 0% Align: Align left
+              A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day. Here’s how it typically functions: A posture corrector works by providing support and gentle alignment to your shoulders.
               </p>
             </div>
           </details>
@@ -34,8 +32,7 @@ const Answer = () => {
             </summary>
             <div className="px-4 pb-4">
               <p>
-                Font: Inter Font weight: 400 Font size: 16pxpx Row height: 24px
-                Letter spacing: 0% Align: Align left
+                A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day. Here’s how it typically functions: A posture corrector works by providing support and gentle alignment to your shoulders.
               </p>
             </div>
           </details>
