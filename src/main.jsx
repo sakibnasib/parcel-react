@@ -8,7 +8,7 @@ import AOS from 'aos';
 AOS.init();
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className="font-Playfair">
+    <div className="font-Playfair w-11/12 mx-auto">
  <RouterProvider router={router} />
     </div>
   
