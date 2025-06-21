@@ -7,13 +7,16 @@ import Register from "../pages/AuthLayOut/Register/Register";
 import CoverAge from "../pages/Coverage/CoverAge";
 
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
     Component:MainLayout,
     children:[
         {index:true,Component:Home},
-        {path:'coverAge',element:CoverAge}
+        {path:'coverAge',element:<CoverAge></CoverAge>,
+          loader:()=>fetch('/public/warehouses.json')
+        }
     ]
   },
   {path:'/',Component:AuthLayOut,

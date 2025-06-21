@@ -2,6 +2,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
 .font-Playfair {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
