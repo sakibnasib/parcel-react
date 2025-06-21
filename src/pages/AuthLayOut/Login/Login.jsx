@@ -1,11 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../../Hooks/useAuth';
+import GoogleLogo from '../../shared/GoogleLogo';
+import { Link } from 'react-router';
 
 const Login = () => {
-    const {register, handleSubmit,formState:{errors}}=useForm()
-    const onSubmit=data=>console.log(data)
+    const {register, handleSubmit,formState:{errors}}=useForm();
+    const {signInUser}=useAuth()
+    const onSubmit=data=>{
+signInUser(data.email,data.password)
+.then(res=>{
+    console.log(res)
+}).catch(error=>{
+    console.error(error)
+})
+    }
     return (
-        <div>
+         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="card-body">
+          <h1 className="text-3xl text-center font-bold">Login</h1>
             <form onSubmit={ handleSubmit(onSubmit)}>
                 <fieldset className="fieldset">
           <label className="label">Email</label>
@@ -18,10 +31,16 @@ const Login = () => {
        {errors.password?.type=== "minLength" && (
         <p role="alert" className='text-red-600'>Password MinLength 6</p>
       )}
-          <div><a className="link link-hover">Forgot password?</a></div>
+          <div><p className="link link-hover">Don’t have any account? <Link to='/register'className='text-[#CAEB66]'>Register</Link></p></div>
         </fieldset>
-         <button type='submit' className="btn btn-neutral mt-4">Login</button>
+         <button type='submit' className="btn bg-[#CAEB66] text-black w-full  mt-4">Login</button>
+         <div class="divider">Or</div>
             </form>
+            <div className="">
+            {/* Google */}
+<GoogleLogo></GoogleLogo>
+         </div>
+        </div>
         </div>
     );
 };

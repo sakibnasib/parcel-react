@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import AuthLayOut from "../pages/AuthLayOut/AuthLayOut";
 import Login from "../pages/AuthLayOut/Login/Login";
 import Register from "../pages/AuthLayOut/Register/Register";
+import CoverAge from "../pages/Coverage/CoverAge";
 
 
 export const router = createBrowserRouter([
@@ -11,7 +12,8 @@ export const router = createBrowserRouter([
     path: "/",
     Component:MainLayout,
     children:[
-        {index:true,Component:Home}
+        {index:true,Component:Home},
+        {path:'coverAge',element:CoverAge}
     ]
   },
   {path:'/',Component:AuthLayOut,

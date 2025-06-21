@@ -1,12 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router';
 import ProFastLogo from '../ProFast/ProFastLogo';
+import useAuth from '../../../Hooks/useAuth';
 
 const Navbar = () => {
+  const {user,logOut}=useAuth();
     const navitems=<>
     <li><NavLink to=''>Home</NavLink></li>
-           <li><NavLink to='aboutus'>AbotUs</NavLink></li>
+      <li><NavLink to='/coverAge'>CoverAge</NavLink></li>
+      <li><NavLink to='aboutus'>AbotUs</NavLink></li>
+         
     </>
+    const handleLogOut=()=>{
+      logOut()
+      .then(res=>{
+        console.log(res)
+      }).catch(error=>{
+        console.error(error)
+      })
+    }
     return (
        <div className="navbar bg-base-100 shadow-sm rounded-3xl">
   <div className="navbar-start">
@@ -28,12 +40,15 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <NavLink className='btn' to='/login'>
+    {user ? <>
+    <button onClick={handleLogOut} className='btn' >Logout</button>
+    </>:<> <NavLink className='btn' to='/login'>
    Login
   </NavLink>
   <NavLink className='btn ml-2' to='/register'>
     Register
-  </NavLink>
+  </NavLink></>}
+ 
   </div>
 </div>
     );
