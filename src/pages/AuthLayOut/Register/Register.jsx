@@ -1,12 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import useAuth from '../../../Hooks/useAuth';
+
 import GoogleLogo from '../../shared/GoogleLogo';
 import { Link } from 'react-router';
+import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const {register,handleSubmit,formState:{errors}}=useForm();
-    const {creatUser}=useAuth();
+    const {creatUser}=useAuth()
     
     const onSubmit=data=>{
 // console.log(data);

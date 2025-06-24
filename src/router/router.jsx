@@ -5,6 +5,10 @@ import AuthLayOut from "../pages/AuthLayOut/AuthLayOut";
 import Login from "../pages/AuthLayOut/Login/Login";
 import Register from "../pages/AuthLayOut/Register/Register";
 import CoverAge from "../pages/Coverage/CoverAge";
+import PrivateRotes from "../routes/PrivateRotes";
+import SendParcel from "../pages/SendParcel/SendParcel";
+import DashboardLayout from "../pages/Layout/Dashbord";
+import Myparcele from "../pages/Dashbord.jsx/Myparcele";
 
 
 
@@ -16,6 +20,12 @@ export const router = createBrowserRouter([
         {index:true,Component:Home},
         {path:'coverAge',element:<CoverAge></CoverAge>,
           loader:()=>fetch('/public/warehouses.json')
+        },
+        { path: 'sendParcel',
+          element:<PrivateRotes>
+            <SendParcel/>
+          </PrivateRotes>,
+           loader:()=>fetch('/public/warehouses.json')
         }
     ]
   },
@@ -23,6 +33,14 @@ export const router = createBrowserRouter([
     children:[
       {path:'login',Component:Login},
       {path:'register',Component:Register}
+    ]
+  },
+  {path: '/dashboard',
+    element:<PrivateRotes>
+<DashboardLayout/>
+    </PrivateRotes>,
+    children:[
+      {path:'myParcels',Component:Myparcele}
     ]
   }
 ]);
