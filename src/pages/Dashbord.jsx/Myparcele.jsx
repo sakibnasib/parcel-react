@@ -3,8 +3,10 @@ import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 const Myparcele = () => {
     const {user}=useAuth();
+    const navigate=useNavigate()
      const axiosSecure = useAxiosSecure();
      const {data:parcels=[], refetch}=useQuery({
          queryKey: ['my-parcels', user.email],
@@ -16,12 +18,15 @@ const Myparcele = () => {
 
      const handleView = (id) => {
         console.log("View parcel", id);
+        
         // You could open a modal or navigate to a detail page
     };
 
     const handlePay = (id) => {
         console.log("Proceed to payment for", id);
+navigate(`/dashboard/payment/${id}`)
         // Implement your payment logic
+        console.log('fghfghfg',id)
     };
 
     const handleDelete = async (id) => {
@@ -96,7 +101,7 @@ const Myparcele = () => {
                                     {parcel.payment_status}
                                 </span>
                             </td>
-                            <td className="space-x-2 flex ">
+                            <td className="space-x-2 flex items-center">
                                 <button
                                     onClick={() => handleView(parcel._id)}
                                     className="btn btn-xs btn-outline"

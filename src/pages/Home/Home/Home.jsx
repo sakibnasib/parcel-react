@@ -10,8 +10,10 @@ import FQA from '../Fqa/FQA';
 
 const Home = () => {
     return (
-        <div className='mt-8'>
-          <Banner/>
+        <div className='mt-8 '>
+          <div className="shadow-t-2xl rounded-xl">
+ <Banner/>
+          </div>
           <div className="w-11/12 mx-auto">
             <HowWorks/>
           </div>

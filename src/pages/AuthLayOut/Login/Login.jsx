@@ -1,16 +1,20 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import useAuth from '../../../Hooks/useAuth';
 import GoogleLogo from '../../shared/GoogleLogo';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const {register, handleSubmit,formState:{errors}}=useForm();
-    const {signInUser}=useAuth()
+    const {signInUser}=useAuth();
+    const location=useLocation();
+    const navigate=useNavigate()
+    const from=location?.state?.form || '/' 
     const onSubmit=data=>{
 signInUser(data.email,data.password)
 .then(res=>{
     console.log(res)
+navigate(from)
 }).catch(error=>{
     console.error(error)
 })
@@ -34,7 +38,7 @@ signInUser(data.email,data.password)
           <div><p className="link link-hover">Don’t have any account? <Link to='/register'className='text-[#CAEB66]'>Register</Link></p></div>
         </fieldset>
          <button type='submit' className="btn bg-[#CAEB66] text-black w-full  mt-4">Login</button>
-         <div class="divider">Or</div>
+         <div className="divider">Or</div>
             </form>
             <div className="">
             {/* Google */}
